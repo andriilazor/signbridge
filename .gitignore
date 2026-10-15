@@ -16,3 +16,6 @@ dist/
 .env.local
 
 .DS_Store
+ml/data/landmarks_v2/
+ml/data/pretrain_split.json
+*.log

@@ -6,10 +6,13 @@ SignBridge watches a webcam feed, tracks hand landmarks with MediaPipe, and clas
 the gesture into one of 100 ASL words (the **WLASL100** subset) using a PyTorch model
 exported to ONNX and run client-side. Everything runs locally in the browser.
 
+**Check it out on Hugging Face:** [Link](https://huggingface.co/spaces/AndriiLazor/signbridge)
+
 ## Table of Contents
 
 - [Overview](#overview)
 - [How It Works](#how-it-works)
+- [Live Demo](#live-demo)
 - [Repository Structure](#repository-structure)
 - [Results](#results)
 - [Key Limitation: Data Availability](#key-limitation-data-availability)
@@ -62,10 +65,16 @@ The normalization and sequence-fitting logic is implemented in both
 live in the browser). Keeping these in sync is what makes the exported model produce
 sane predictions on live camera input instead of just on its own training data.
 
+## Live Demo
+
+The demo is available at https://huggingface.co/spaces/AndriiLazor/signbridge
+
 ## Repository Structure
 
 ```
 signbridge/
+├── hf-space/
+│   └── README.md                 # Hugging Face Space front matter
 ├── ml/
 │   ├── data/
 │   │   ├── prepare_split.py      # WLASL_v0.3.json + nslt_*.json → wlasl100_split.json
@@ -258,6 +267,10 @@ pip install -r requirements.txt
   single-word clips; there's no learned segmentation for "where does the sign start
   and end" in a live stream. The web demo's sliding window is a practical
   approximation, not a real solution.
+- **Richer features are the next step.** Adding body pose, left/right hand ordering,
+  hand trajectory/velocity and stronger augmentation gave a preliminary 57% Top-1 /
+  81% Top-5 on the same test split in local experiments (vs. 36% / 69% above). This is
+  not yet part of the repository or the web demo.
 - No automated tests or CI pipeline yet.
 
 ## License

@@ -221,19 +221,19 @@ function App() {
   }, []);
 
   return (
-    <div style={{ display: "grid", placeItems: "center", height: "100vh", background: "#111" }}>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100vw", height: "100vh", background: "#111" }}>
       <div style={{ position: "relative", width: 640, height: 480 }}>
         <video
           ref={videoRef}
           muted
           playsInline
-          style={{ position: "absolute", width: 640, height: 480, transform: "scaleX(-1)" }}
+          style={{ position: "absolute", top: 0, left: 0, width: 640, height: 480, transform: "scaleX(-1)" }}
         />
         <canvas
           ref={canvasRef}
-          style={{ position: "absolute", width: 640, height: 480, transform: "scaleX(-1)" }}
+          style={{ position: "absolute", top: 0, left: 0, width: 640, height: 480, transform: "scaleX(-1)" }}
         />
-        <p style={{ position: "absolute", bottom: -32, color: "#fff", width: "100%", textAlign: "center" }}>
+        <p style={{ position: "absolute", left: 0, bottom: -32, color: "#fff", width: "100%", textAlign: "center" }}>
           {status}
         </p>
       </div>
