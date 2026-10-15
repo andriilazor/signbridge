@@ -65,10 +65,6 @@ The normalization and sequence-fitting logic is implemented in both
 live in the browser). Keeping these in sync is what makes the exported model produce
 sane predictions on live camera input instead of just on its own training data.
 
-## Live Demo
-
-The demo is available at https://huggingface.co/spaces/AndriiLazor/signbridge
-
 ## Repository Structure
 
 ```
